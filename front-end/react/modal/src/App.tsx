@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "./components/Button";
+import Card from "./components/card/Card";
 
 export default function Modal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -10,27 +12,16 @@ export default function Modal() {
   };
   return (
     <div className="h-screen flex flex-col justify-center items-center gap-4 ">
-      <button
-        type="button"
-        className="px-6 py-4 bg-sky-500 cursor-pointer rounded-md"
-        onClick={open}
-      >
-        Modal
-      </button>
+      {!modalIsOpen && <Button onClick={open} label="open modal" />}
       {modalIsOpen && (
-        <div>
-          <button
-            className="px-6 py-4 bg-red-500 cursor-pointer rounded-md"
-            onClick={close}
-          >
-            close
-          </button>
-          <p className="w-96 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+        <div className="flex flex-col justify-center items-center gap-4 ">
+          <Card
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
             distinctio debitis velit repudiandae ex error ratione aspernatur
             deserunt? Quas a dolore repellat minus molestiae ab iste sit velit
-            cupiditate vero.
-          </p>
+            cupiditate vero."
+          />
+          <Button onClick={close} label="close modal" className="bg-red-500" />
         </div>
       )}
     </div>
