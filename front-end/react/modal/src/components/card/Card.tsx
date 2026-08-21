@@ -1,11 +1,14 @@
 interface Card {
-  text: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-export default function Card({ text }: Card) {
+export default function Card({ children, className }: Card) {
   return (
-    <div className="w-96 text-center bg-stone-200 p-4 rounded-md flex flex-col justify-center items-center gap-4 ">
-      <p>{text}</p>
+    <div
+      className={`text-center shadow-sm rounded-md flex flex-col justify-center items-center ${className}`}
+    >
+      {children}
     </div>
   );
 }

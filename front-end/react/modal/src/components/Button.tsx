@@ -1,14 +1,16 @@
 interface Props {
   onClick: () => void;
-  label: string;
+  label?: string;
   className?: string;
+  children?: React.ReactNode;
 }
-export default function Button({ onClick, label, className }: Props) {
+export default function Button({ onClick, label, className, children }: Props) {
   return (
     <button
-      className={`px-6 py-4 bg-gray-200 rounded-md cursor-pointer font-semibold ${className}`}
+      className={`cursor-pointer font-semibold ${className}`}
       onClick={onClick}
     >
+      {children}
       {label}
     </button>
   );
