@@ -1,75 +1,101 @@
-# React + TypeScript + Vite
+# Modal Component Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite project that demonstrates a reusable modal UI with animated open/close transitions and a card-based layout.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a front-end exercise focused on building a polished modal interaction using:
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React icons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app includes a simple button-triggered modal with a close button, animated scaling transitions, and custom reusable UI building blocks such as `Button`, `Card`, `CardHeader`, `CardContent`, and `CardFooter`.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Open and close modal interaction
+- Smooth transition animation
+- Reusable card and button components
+- Responsive centered layout
+- Clean and modern styling with Tailwind
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+front-end/
+└── react/
+    └── modal/
+        ├── public/
+        ├── src/
+        │   ├── components/
+        │   │   ├── Button.tsx
+        │   │   └── card/
+        │   │       ├── Card.tsx
+        │   │       ├── CardContent.tsx
+        │   │       ├── CardFooter.tsx
+        │   │       └── CardHeader.tsx
+        │   ├── App.tsx
+        │   ├── main.tsx
+        │   └── index.css
+        ├── package.json
+        ├── vite.config.ts
+        ├── tsconfig.json
+        └── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Make sure you have the following installed:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+
+- pnpm
 
+## Installation
+
+From the project root:
+
+```bash
+pnpm install
 ```
+
+Then move into the modal app folder:
+
+```bash
+cd front-end/react/modal
+```
+
+## Run the app locally
+
+```bash
+pnpm dev
+```
+
+This will start the Vite development server. Open the local URL shown in the terminal to view the app.
+
+## Build for production
+
+```bash
+pnpm build
+```
+
+The production build will be generated in the `dist` folder.
+
+## Preview production build
+
+```bash
+pnpm preview
+```
+
+## Notes
+
+This project is designed as a small UI component practice, so the modal behavior and styling are intentionally simple but easy to expand.
+
+If you want, you can extend it with:
+
+- keyboard escape close support
+- backdrop click close
+- accessibility improvements
+- custom modal sizes and themes
