@@ -26,12 +26,11 @@ export default function Carousel({ images }: CarouselProps) {
       setPosition(position - 1);
     }
   };
-  const first = images[position];
-  console.log(position);
+  const imagePosition = images[position];
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center gap-4 w-96">
       <Button onClick={back} children={<ChevronLeft className="size-12" />} />
-      <img className="size-60" src={first.imageUrl} alt="" />
+      <img className="size-60" src={imagePosition.imageUrl} alt="" />
       <Button onClick={next} children={<ChevronRight className="size-12" />} />
     </div>
   );
